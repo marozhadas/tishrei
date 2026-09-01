@@ -81,11 +81,6 @@ body.single #spine,body.closed #spine{opacity:0}
 #faceFront .shade{background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,0) 60%)}
 #faceBack  .shade{background:linear-gradient(-90deg,rgba(0,0,0,.45),rgba(0,0,0,0) 60%)}
 
-/* first-visit hint */
-#hint{position:absolute;z-index:9;bottom:8%;right:50%;transform:translateX(50%);
-  background:rgba(44,38,34,.86);color:#fff;font-size:13px;padding:7px 14px;border-radius:99px;
-  pointer-events:none;animation:hintio 5.5s ease forwards}
-@keyframes hintio{0%{opacity:0;transform:translate(50%,8px)}12%{opacity:1;transform:translate(50%,0)}80%{opacity:1}100%{opacity:0}}
 #pageA.peek{animation:peek 2.4s ease 2}
 @keyframes peek{0%,100%{transform:none}45%{transform:perspective(900px) rotateY(9deg)}}
 #pageA{transform-origin:100% 50%}
@@ -140,7 +135,6 @@ svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke
         </div>
       </div>
     </div>
-    <div id="hint">גררו או הקליקו כדי לדפדף</div>
   </div>
 
   <div class="controls">
@@ -402,6 +396,5 @@ $('#btnSound').onclick=()=>{
 addEventListener('resize',layout);
 layout();
 setTimeout(()=>document.getElementById('pageA').classList.add('peek'),900);
-setTimeout(()=>$('#hint')?.remove(),6000);
 stage.focus({preventScroll:true});
 </script>
