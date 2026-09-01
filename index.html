@@ -112,8 +112,8 @@ svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke
 @media (max-width:820px){
   #book{width:var(--pw)}
   #pageB{display:none}
-  #viewer{padding:8px 3px 10px;gap:4px}
-  #stage{align-items:flex-start}
+  #viewer{padding:8px 3px 10px;gap:6px;justify-content:center}
+  #stage{flex:0 0 auto}
   .hero p{margin-top:2px}
 }
 </style>
@@ -187,7 +187,8 @@ const spread=()=>Math.ceil(idx/2);
 function layout(){
   single=window.matchMedia('(max-width:820px)').matches;
   document.body.classList.toggle('single',single);
-  const aw=stage.clientWidth-(single?6:48), ah=stage.clientHeight-(single?10:56);
+  const aw=stage.clientWidth-(single?6:48);
+  const ah=single?(window.innerHeight-150):(stage.clientHeight-56);
   let w=single?Math.min(aw,ah*RATIO):Math.min(aw/2,ah*RATIO);
   w=Math.max(140,w); pw=w;
   document.documentElement.style.setProperty('--pw',w+'px');
